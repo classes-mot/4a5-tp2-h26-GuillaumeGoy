@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import userRoutes from "./routes/users-routes.js";
 import jeuxRoutes from "./routes/jeux-routes.js";
-import errorHandler from "./hander/error-handler.js";
+import errorHandler from "./handler/error-handler.js";
 
 const app = express();
 
