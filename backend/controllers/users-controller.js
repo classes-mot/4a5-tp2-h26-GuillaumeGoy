@@ -14,3 +14,7 @@ const getUsers = (req, res, next) => {
     res.json({ users: MOCK_USERS });
   }, 3000);
 };
+
+export default {
+  getUsers,
+};
