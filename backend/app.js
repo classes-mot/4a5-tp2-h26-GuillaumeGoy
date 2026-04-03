@@ -5,7 +5,7 @@ import jeuxRoutes from "./routes/jeux-routes.js";
 import errorHandler from "./handler/error-handler.js";
 import { connectDB } from "./utils/bd.js";
 
-await connectDB;
+await connectDB();
 
 const app = express();
 
