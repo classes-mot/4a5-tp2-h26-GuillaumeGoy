@@ -5,3 +5,5 @@ const jeuxSchema = new mongoose.Schema({
   description: String,
   dateCreation: Date,
 });
+
+export const Jeux = mongoose.model("Jeux", jeuxSchema);
