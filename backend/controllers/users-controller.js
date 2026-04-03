@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { v4 as uuid } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 let MOCK_USERS = [
   {
@@ -25,7 +25,26 @@ const getUserById = (req, res, next) => {
   }
 };
 
+const registerUser = (req, res, next) => {
+  console.log("Registering");
+  const { user, password } = req.body;
+  const hasUser = MOCK_USERS.find((u) => u.user === user);
+  if (hasUser) {
+    res.status(422).json({ message: "Cet user est deja utilise." });
+    return;
+  }
+  const createdUser = {
+    id: uuidv4(),
+    user,
+    password,
+  };
+  MOCK_USERS.push(createdUser);
+  console.log("registered");
+  res.status(201).json({ user: createdUser });
+};
+
 export default {
   getUsers,
   getUserById,
+  registerUser,
 };
