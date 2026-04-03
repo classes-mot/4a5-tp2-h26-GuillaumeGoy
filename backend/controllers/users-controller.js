@@ -43,8 +43,44 @@ const registerUser = (req, res, next) => {
   res.status(201).json({ user: createdUser });
 };
 
+const login = (req, res, next) => {
+  const { user, password } = req.body;
+  console.log(user, password);
+
+  const identifiedUser = MOCK_USERS.find(
+    (u) => u.user === user && u.password === password,
+  );
+  console.log(identifiedUser);
+  if (!identifiedUser) {
+    res
+      .status(401)
+      .json({ message: "Identification echoue, verifiez vos identifiants" });
+  } else {
+    let token;
+    try {
+      console.log("identifie!");
+      token = jwt.sign({ userId: identifiedUser.id }, "cleSuperSecrete!", {
+        expiresIn: "1h",
+      });
+      console.log(token);
+    } catch (err) {
+      console.error(err);
+      const error = new HttpError(
+        "Signing up failed, please try again later.",
+        500,
+      );
+      return next(error);
+    }
+    res.status(201).json({
+      userId: identifiedUser.id,
+      token: token,
+    });
+  }
+};
+
 export default {
   getUsers,
   getUserById,
   registerUser,
+  login,
 };
