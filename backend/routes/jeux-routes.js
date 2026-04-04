@@ -10,9 +10,10 @@ router.get("/", jeuxController.getJeux);
 router.get("/:jid", jeuxController.getJeuxById);
 
 router.use(checkAuth);
+
 router.post("/", jeuxController.addJeux);
 
-//router.patch("/jeux/:jid", jeuxController.modJeux);
+router.patch("/:jid", jeuxController.modJeux);
 
 //router.delete("");
 

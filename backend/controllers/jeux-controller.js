@@ -47,8 +47,23 @@ const addJeux = async (req, res, next) => {
   res.status(201).json({ jeux: createdJeux });
 };
 
+const modJeux = (req, res, next) => {
+  const { titre, description } = req.body;
+  const taskId = req.params.jid;
+
+  const updatedJeux = { ...DUMMY_JEUX.find((j) => j.id === taskId) };
+  const jeuxIndex = DUMMY_JEUX.findIndex((j) => j.id === taskId);
+  if (titre) updatedJeux.titre = titre;
+  if (description) updatedJeux.description = description;
+
+  DUMMY_JEUX[jeuxIndex] = updatedJeux;
+
+  res.status(200).json({ jeux: updatedJeux });
+};
+
 export default {
   getJeux,
   getJeuxById,
   addJeux,
+  modJeux,
 };
