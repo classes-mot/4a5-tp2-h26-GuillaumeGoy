@@ -1,4 +1,5 @@
 import express from "express";
+import checkAuth from "../middleware/jwt-verif.js";
 
 import jeuxController from "../controllers/jeux-controller.js";
 const router = express.Router();
@@ -8,7 +9,8 @@ router.get("/", jeuxController.getJeux);
 
 router.get("/:jid", jeuxController.getJeuxById);
 
-//router.post("/", jeuxController.addJeux);
+router.use(checkAuth);
+router.post("/", jeuxController.addJeux);
 
 //router.patch("/jeux/:jid", jeuxController.modJeux);
 

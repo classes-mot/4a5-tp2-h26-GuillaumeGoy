@@ -6,6 +6,7 @@ const DUMMY_JEUX = [
     id: "j1",
     titre: "Chess",
     description: "Jeux noir et blancs avec des pieces qui se battent.",
+    dateCreation: "2019",
   },
 ];
 
@@ -26,7 +27,28 @@ const getJeuxById = (req, res, next) => {
   }
 };
 
+const addJeux = async (req, res, next) => {
+  const { titre, description, dateCreation } = req.body;
+
+  console.log("Commence a prendres les data");
+  const createdJeux = new Jeux({
+    titre,
+    description,
+    dateCreation,
+  });
+
+  try {
+    DUMMY_JEUX.push(createdJeux);
+    await createdJeux.save();
+  } catch (e) {
+    const err = new HttpError("Creation de la BD echouee.", 500);
+    return next(err);
+  }
+  res.status(201).json({ jeux: createdJeux });
+};
+
 export default {
   getJeux,
   getJeuxById,
+  addJeux,
 };

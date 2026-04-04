@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const jeuxSchema = new mongoose.Schema({
-  title: { type: String, required: true },
+  titre: { type: String, required: true },
   description: String,
-  dateCreation: Date,
+  dateCreation: String,
 });
 
 export const Jeux = mongoose.model("Jeux", jeuxSchema);
