@@ -6,7 +6,7 @@ const router = express.Router();
 //La liste des jeux
 router.get("/", jeuxController.getJeux);
 
-//router.get("/jeux/:jid", jeuxController.getJeuxById);
+router.get("/:jid", jeuxController.getJeuxById);
 
 //router.post("/", jeuxController.addJeux);
 

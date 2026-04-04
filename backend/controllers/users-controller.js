@@ -6,6 +6,7 @@ let MOCK_USERS = [
     id: "u1",
     user: "admin",
     password: "admin",
+    dateCreation: Date.now(),
   },
 ];
 
