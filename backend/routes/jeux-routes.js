@@ -15,6 +15,6 @@ router.post("/", jeuxController.addJeux);
 
 router.patch("/:jid", jeuxController.modJeux);
 
-//router.delete("");
+router.delete("/:jid", jeuxController.deleteJeux);
 
 export default router;

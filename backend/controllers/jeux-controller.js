@@ -1,7 +1,9 @@
 import { validationResult } from "express-validator";
 import { Jeux } from "../model/jeux.js";
 
-const DUMMY_JEUX = [
+let id = 2; // temporaire avant d'avoir la DB complete apres
+let jid = "j" + id;
+let DUMMY_JEUX = [
   {
     id: "j1",
     titre: "Chess",
@@ -32,10 +34,13 @@ const addJeux = async (req, res, next) => {
 
   console.log("Commence a prendres les data");
   const createdJeux = new Jeux({
+    jid,
     titre,
     description,
     dateCreation,
   });
+  id++;
+  jid = "j" + id;
 
   try {
     DUMMY_JEUX.push(createdJeux);
@@ -61,9 +66,16 @@ const modJeux = (req, res, next) => {
   res.status(200).json({ jeux: updatedJeux });
 };
 
+const deleteJeux = (req, res, next) => {
+  const jeuxId = req.params.jid;
+  DUMMY_JEUX = DUMMY_JEUX.filter((j) => j.id !== jeuxId);
+  res.status(200).json({ message: "Deleted jeux." });
+};
+
 export default {
   getJeux,
   getJeuxById,
   addJeux,
   modJeux,
+  deleteJeux,
 };
