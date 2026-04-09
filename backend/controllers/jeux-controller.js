@@ -33,11 +33,9 @@ const addJeux = async (req, res, next) => {
   const { titre, description, dateCreation } = req.body;
 
   if (titre.length > 15) {
-    return res
-      .status(400)
-      .json({
-        message: "Le nom du jeux ne peux pas avoir plus que 15 caracteres.",
-      });
+    return res.status(400).json({
+      message: "Le nom du jeux ne peux pas avoir plus que 15 caracteres.",
+    });
   }
 
   console.log("Commence a prendres les data");
@@ -62,6 +60,12 @@ const addJeux = async (req, res, next) => {
 
 const modJeux = (req, res, next) => {
   const { titre, description } = req.body;
+  if (titre.length > 15) {
+    return res.status(400).json({
+      message:
+        "Le nom du jeux ne peux pas avoir plus que 15 caracteres. Meme a la modification :)",
+    });
+  }
   const taskId = req.params.jid;
 
   const updatedJeux = { ...DUMMY_JEUX.find((j) => j.id === taskId) };
