@@ -1,0 +1,497 @@
+{
+  "info": {
+    "_postman_id": "11bf6fdc-2ab4-4296-9cae-5b8c56d4c3ca",
+    "name": "tp2",
+    "description": "test pour le tp2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52765641",
+    "_collection_link": "https://go.postman.co/collection/52765641-11bf6fdc-2ab4-4296-9cae-5b8c56d4c3ca?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "get user by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/users/profile/0e660d3e-92c8-46a7-a017-0b2541abab82",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users",
+                "profile",
+                "0e660d3e-92c8-46a7-a017-0b2541abab82"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\":\"Jean\",\n    \"password\":\"admin\"\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/users/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\":\"Jean\",\n    \"password\":\"admin\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/users/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getUSERS",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "jwt",
+              "jwt": [
+                {
+                  "key": "secret",
+                  "value": "cleSuperSecrete!",
+                  "type": "string"
+                },
+                {
+                  "key": "payload",
+                  "value": "{\n    \"userId\": \"2a7d1206-ba65-4e92-aabd-6250870c70a2\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdkMTIwNi1iYTY1LTRlOTItYWFiZC02MjUwODcwYzcwYTIiLCJpYXQiOjE3NzUyNjQ5NjUsImV4cCI6MTc3NTI2ODU2NX0.2A91zedvwC7QGdjY4UlTwOwfAPgQWqlhjmGLrOsRBiM\"\n}",
+                  "type": "string"
+                },
+                {
+                  "key": "algorithm",
+                  "value": "HS256",
+                  "type": "string"
+                },
+                {
+                  "key": "isSecretBase64Encoded",
+                  "value": false,
+                  "type": "boolean"
+                },
+                {
+                  "key": "addTokenTo",
+                  "value": "header",
+                  "type": "string"
+                },
+                {
+                  "key": "headerPrefix",
+                  "value": "Bearer",
+                  "type": "string"
+                },
+                {
+                  "key": "queryParamKey",
+                  "value": "token",
+                  "type": "string"
+                },
+                {
+                  "key": "header",
+                  "value": "{}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "API calls pour les users"
+    },
+    {
+      "name": "New Folder",
+      "item": [
+        {
+          "name": "GetJeuxbyId",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\":\"jean\",\n    \"password\":\"admin\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/jeux/j1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "jeux",
+                "j1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AddJeux",
+          "request": {
+            "auth": {
+              "type": "jwt",
+              "jwt": [
+                {
+                  "key": "payload",
+                  "value": "{\"userId\": \"8f5b9c92-bcf4-4f4a-b64a-4e488d81aad8\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4ZjViOWM5Mi1iY2Y0LTRmNGEtYjY0YS00ZTQ4OGQ4MWFhZDgiLCJpYXQiOjE3NzU3MTI1OTIsImV4cCI6MTc3NTcxNjE5Mn0.34kOY8fnXMVevpDi6gaZiXMwQCBJOgPh8o1anngnp0k\"}",
+                  "type": "string"
+                },
+                {
+                  "key": "secret",
+                  "value": "cleSuperSecrete!",
+                  "type": "string"
+                },
+                {
+                  "key": "algorithm",
+                  "value": "HS256",
+                  "type": "string"
+                },
+                {
+                  "key": "isSecretBase64Encoded",
+                  "value": false,
+                  "type": "boolean"
+                },
+                {
+                  "key": "addTokenTo",
+                  "value": "header",
+                  "type": "string"
+                },
+                {
+                  "key": "headerPrefix",
+                  "value": "Bearer",
+                  "type": "string"
+                },
+                {
+                  "key": "queryParamKey",
+                  "value": "token",
+                  "type": "string"
+                },
+                {
+                  "key": "header",
+                  "value": "{}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"titre\":\"Drajean\",\n    \"description\":\"Tu mange des crepes au poulets.\",\n    \"dateCreation\": \"2024\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/jeux",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "jeux"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "modJeux",
+          "request": {
+            "auth": {
+              "type": "jwt",
+              "jwt": [
+                {
+                  "key": "secret",
+                  "value": "cleSuperSecrete!",
+                  "type": "string"
+                },
+                {
+                  "key": "payload",
+                  "value": "{\n    \"userId\": \"2a7d1206-ba65-4e92-aabd-6250870c70a2\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdkMTIwNi1iYTY1LTRlOTItYWFiZC02MjUwODcwYzcwYTIiLCJpYXQiOjE3NzUyNjQ5NjUsImV4cCI6MTc3NTI2ODU2NX0.2A91zedvwC7QGdjY4UlTwOwfAPgQWqlhjmGLrOsRBiM\"\n}",
+                  "type": "string"
+                },
+                {
+                  "key": "algorithm",
+                  "value": "HS256",
+                  "type": "string"
+                },
+                {
+                  "key": "isSecretBase64Encoded",
+                  "value": false,
+                  "type": "boolean"
+                },
+                {
+                  "key": "addTokenTo",
+                  "value": "header",
+                  "type": "string"
+                },
+                {
+                  "key": "headerPrefix",
+                  "value": "Bearer",
+                  "type": "string"
+                },
+                {
+                  "key": "queryParamKey",
+                  "value": "token",
+                  "type": "string"
+                },
+                {
+                  "key": "header",
+                  "value": "{}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"titre\":\"Drean\",\n    \"description\":\"admin\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/jeux/j2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "jeux",
+                "j2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteJeux",
+          "request": {
+            "auth": {
+              "type": "jwt",
+              "jwt": [
+                {
+                  "key": "secret",
+                  "value": "cleSuperSecrete!",
+                  "type": "string"
+                },
+                {
+                  "key": "payload",
+                  "value": "{\n    \"userId\": \"2a7d1206-ba65-4e92-aabd-6250870c70a2\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdkMTIwNi1iYTY1LTRlOTItYWFiZC02MjUwODcwYzcwYTIiLCJpYXQiOjE3NzUyNjQ5NjUsImV4cCI6MTc3NTI2ODU2NX0.2A91zedvwC7QGdjY4UlTwOwfAPgQWqlhjmGLrOsRBiM\"\n}",
+                  "type": "string"
+                },
+                {
+                  "key": "algorithm",
+                  "value": "HS256",
+                  "type": "string"
+                },
+                {
+                  "key": "isSecretBase64Encoded",
+                  "value": false,
+                  "type": "boolean"
+                },
+                {
+                  "key": "addTokenTo",
+                  "value": "header",
+                  "type": "string"
+                },
+                {
+                  "key": "headerPrefix",
+                  "value": "Bearer",
+                  "type": "string"
+                },
+                {
+                  "key": "queryParamKey",
+                  "value": "token",
+                  "type": "string"
+                },
+                {
+                  "key": "header",
+                  "value": "{}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/jeux/j2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "jeux",
+                "j2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getJeux",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "jwt",
+              "jwt": [
+                {
+                  "key": "secret",
+                  "value": "cleSuperSecrete!",
+                  "type": "string"
+                },
+                {
+                  "key": "payload",
+                  "value": "{\n    \"userId\": \"2a7d1206-ba65-4e92-aabd-6250870c70a2\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYTdkMTIwNi1iYTY1LTRlOTItYWFiZC02MjUwODcwYzcwYTIiLCJpYXQiOjE3NzUyNjQ5NjUsImV4cCI6MTc3NTI2ODU2NX0.2A91zedvwC7QGdjY4UlTwOwfAPgQWqlhjmGLrOsRBiM\"\n}",
+                  "type": "string"
+                },
+                {
+                  "key": "algorithm",
+                  "value": "HS256",
+                  "type": "string"
+                },
+                {
+                  "key": "isSecretBase64Encoded",
+                  "value": false,
+                  "type": "boolean"
+                },
+                {
+                  "key": "addTokenTo",
+                  "value": "header",
+                  "type": "string"
+                },
+                {
+                  "key": "headerPrefix",
+                  "value": "Bearer",
+                  "type": "string"
+                },
+                {
+                  "key": "queryParamKey",
+                  "value": "token",
+                  "type": "string"
+                },
+                {
+                  "key": "header",
+                  "value": "{}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/jeux",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "jeux"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Folder avec tous les API calls pour les jeux"
+    }
+  ]
+}
