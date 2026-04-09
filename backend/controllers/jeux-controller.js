@@ -32,6 +32,14 @@ const getJeuxById = (req, res, next) => {
 const addJeux = async (req, res, next) => {
   const { titre, description, dateCreation } = req.body;
 
+  if (titre.length > 15) {
+    return res
+      .status(400)
+      .json({
+        message: "Le nom du jeux ne peux pas avoir plus que 15 caracteres.",
+      });
+  }
+
   console.log("Commence a prendres les data");
   const createdJeux = new Jeux({
     jid,
