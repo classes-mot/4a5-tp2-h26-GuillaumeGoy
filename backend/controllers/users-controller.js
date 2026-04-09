@@ -29,6 +29,20 @@ const getUserById = (req, res, next) => {
 const registerUser = (req, res, next) => {
   console.log("Registering");
   const { user, password } = req.body;
+
+  if (user.length > 12) {
+    return res.status(400).json({
+      message: "Le username ne peut pas avoir plus que 12 caracteres.",
+    });
+  }
+  const sansSpecialRegex = /^[a-zA-Z0-9]+$/;
+  if (!sansSpecialRegex.test(user)) {
+    return res
+      .status(400)
+      .json({
+        message: "Le username peut pas contenir des caracteres speciaux.",
+      });
+  }
   const hasUser = MOCK_USERS.find((u) => u.user === user);
   if (hasUser) {
     res.status(422).json({ message: "Cet user est deja utilise." });
